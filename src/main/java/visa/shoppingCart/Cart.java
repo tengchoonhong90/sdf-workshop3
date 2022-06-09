@@ -14,24 +14,23 @@ public class Cart {
     private List<String> contents = new LinkedList<>();
     private String username;
 
-    public Cart(String name) {
+    public Cart(String name){
         this.username = name;
-        
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void add(String item) {
-        for (String inCart: contents)
-            if (inCart.equals(item))
+    public void add(String item){
+        for(String inCart: contents)
+            if(inCart.equals(item))
                 return;
         contents.add(item);
     }
-
-    public String delete(int index) {
-        if(index < contents.size())
+    
+    public String delete(int index){
+        if( index < contents.size())
             return contents.remove(index);
         return "nothing";
     }
@@ -46,20 +45,20 @@ public class Cart {
         isr.close();
     }
 
-    public void save (OutputStream os) throws IOException {
-        OutputStreamWriter osw = new OutputStreamWriter(os);
-        BufferedWriter bw = new BufferedWriter(osw);
+    public void save(OutputStream os) throws IOException{
+        OutputStreamWriter ows = new OutputStreamWriter(os);
+        BufferedWriter bw = new BufferedWriter(ows);
         for(String item: contents)
             bw.write(item + "\n");
 
-        osw.flush();
+        ows.flush();
         bw.flush();
-        osw.close();
         bw.close();
+        ows.close();
     }
 
-    public List<String> getContents() {
+    public List<String> getContents(){
         return contents;
     }
-
 }
+
