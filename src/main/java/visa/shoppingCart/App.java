@@ -8,6 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        //print out first argument db name used tocreate the directory
+        System.out.println(args);
     }
 }
